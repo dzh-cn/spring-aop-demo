@@ -13,4 +13,6 @@ public interface SalespersonService {
 	 * @return
 	 */
 	String payment(String some);
+
+    String abc(String some);
 }

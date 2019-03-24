@@ -1,13 +1,11 @@
 package dzhh.demo.springaop.logsupport;
 
 
-import java.util.Arrays;
-
 import org.aspectj.lang.JoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dzhh.demo.springaop.cache.SimepleCache;
+import java.util.Arrays;
 
 public class SimpleLogSupport {
 
@@ -16,17 +14,21 @@ public class SimpleLogSupport {
 	public void before(JoinPoint jp) {
 		Object[] args = jp.getArgs();
 		log.debug("args:{}", Arrays.toString(args));
-		SimepleCache.sb.append("before ");
+        log.info("before");
 	}
 
 	public void after(JoinPoint jp) {
 
-		SimepleCache.sb.append(" after");
+        log.info(" after");
 	}
 
 	public void afterReturning(JoinPoint jp, Object result) {
 
 		log.debug("result:{}", result.toString());
-		log.info(SimepleCache.sb.toString());
+		log.info("afterReturning");
 	}
+
+    public Object around() {
+        return null;
+    }
 }
